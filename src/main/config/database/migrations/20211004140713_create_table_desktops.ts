@@ -7,8 +7,8 @@ export async function up (knex: Knex): Promise<void> {
     table.string('type').notNullable()
     table.string('os').notNullable()
     table.string('ip').notNullable()
-    table.integer('id_company').notNullable()
-    table.foreign('id_company').references('id').inTable('companies').onDelete('CASCADE')
+    table.integer('id_company', 10).notNullable().unsigned()
+    table.foreign('id_company').references('id').inTable('companies').onDelete('CASCADE').onUpdate('CASCADE')
   })
 }
 

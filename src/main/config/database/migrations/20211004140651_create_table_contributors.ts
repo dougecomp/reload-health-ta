@@ -8,11 +8,11 @@ export async function up (knex: Knex): Promise<void> {
     table.string('title').notNullable()
     table.string('jobTitle').notNullable()
     table.integer('age').notNullable()
-    table.integer('id_company').notNullable()
+    table.integer('id_company', 10).notNullable().unsigned()
     table.foreign('id_company').references('id').inTable('companies').onDelete('CASCADE')
   })
 }
 
 export async function down (knex: Knex): Promise<void> {
-  return knex.schema.dropSchema('contributors')
+  return knex.schema.dropTable('contributors')
 }
