@@ -9,7 +9,8 @@ export async function seed (knex: Knex): Promise<void> {
 
     const companies = data as any[]
     for (const company of companies) {
-      const idsInsertedCompanies = await knex('companies').insert({
+      await knex('companies').insert({
+        id: company.id,
         business_name: company.business_name,
         suffix: company.suffix,
         industry: company.industry,
@@ -21,7 +22,6 @@ export async function seed (knex: Knex): Promise<void> {
         latitude: company.latitude,
         longitude: company.longitude
       })
-      const idCompany = idsInsertedCompanies[0]
       for (const contributor of company.contributors) {
         await knex('contributors').insert({
           firstName: contributor.firstName,
@@ -29,7 +29,7 @@ export async function seed (knex: Knex): Promise<void> {
           title: contributor.title,
           jobTitle: contributor.jobTitle,
           age: contributor.age,
-          id_company: idCompany
+          id_company: company.id
         })
       }
       for (const desktop of company.desktops) {
@@ -38,7 +38,7 @@ export async function seed (knex: Knex): Promise<void> {
           type: desktop.type,
           os: desktop.os,
           ip: desktop.ip,
-          id_company: idCompany
+          id_company: company.id
         })
       }
     }
