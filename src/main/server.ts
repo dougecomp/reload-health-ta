@@ -1,7 +1,7 @@
 import { env } from './config/config'
 import { makeApp } from './app'
-import { setDatabaseConnection } from '../infra/repositories/database-connection'
-import { setRedisConnection } from './redis/redis-connection'
+import { setDatabaseConnection } from '@/infra/repositories'
+import { setRedisConnection } from '@/infra/redis/redis-connection'
 
 const app = makeApp()
 
