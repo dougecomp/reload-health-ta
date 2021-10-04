@@ -9,8 +9,8 @@ export const env = {
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     name: process.env.DB_NAME,
-    migrations_dir: process.env.DB_MIGRATIONS_DIR || 'src/main/database/migrations',
-    seeds_dir: process.env.DB_SEEDS_DIR || 'src/main/database/seeds'
+    migrations_dir: process.env.DB_MIGRATIONS_DIR || 'src/main/config/database/migrations',
+    seeds_dir: process.env.DB_SEEDS_DIR || 'src/main/config/database/seeds'
   },
   redis: {
     host: process.env.REDIS_HOST

@@ -17,10 +17,10 @@ module.exports = {
   },
   migrations: {
     tableName: 'knex_migrations',
-    directory: process.env.DB_MIGRATIONS_DIR || 'src/main/database/migrations'
+    directory: process.env.DB_MIGRATIONS_DIR || 'src/main/config/database/migrations'
   },
   seeds: {
-    directory: process.env.DB_SEEDS_DIR || 'src/main/database/seeds'
+    directory: process.env.DB_SEEDS_DIR || 'src/main/config/database/seeds'
   }
 
 } as Knex.Config
