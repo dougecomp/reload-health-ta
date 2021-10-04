@@ -6,7 +6,7 @@ export class LoadCompaniesController implements Controller {
   async handle (): Promise<HttpResponse> {
     try {
       const connection = getDatabaseConnection()
-      const companies = await connection('company').select('*')
+      const companies = await connection('companies').select('*')
       return ok(companies)
     } catch (error) {
       return serverError(error)
