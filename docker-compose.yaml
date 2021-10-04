@@ -5,6 +5,8 @@ services:
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=secret
+    ports:
+      - "3306:3306"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -13,8 +15,14 @@ services:
       - PMA_PORT=3306
       - PMA_USER=root
       - PMA_PASSWORD=secret
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80"
     
   redis:
     image: redis:6.2
     environment:
       - REDIS_PASSWORD=secret
+    ports:
+      - "6379:6379"
