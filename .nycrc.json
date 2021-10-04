@@ -1,0 +1,5 @@
+{
+  "reporter": ["text", "html"],
+  "include": ["src"],
+  "exclude": ["src/main", "src/**/index.ts"]
+}

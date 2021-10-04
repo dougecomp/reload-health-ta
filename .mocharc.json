@@ -1,0 +1,4 @@
+{
+  "require": ["tsconfig-paths/register", "ts-node/register"],
+  "recursive": true
+}

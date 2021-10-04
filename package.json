@@ -1,0 +1,43 @@
+{
+  "scripts": {
+    "dev": "tsnd -r tsconfig-paths/register --inspect=0.0.0.0:9229 --poll --exit-child --respawn --transpile-only --ignore-watch node_modules --no-notify src/main/server.ts",
+    "test:unit": "yarn mocha --parallel --exit tests/**/*.spec.ts",
+    "test:unit:dev": "yarn mocha --inspect=0.0.0.0:9229 -w --watch-files src,tests --watch-ignore node_modules tests/**/*.spec.ts",
+    "build": "rimraf ./dist && babel src knexfile.ts --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "build:watch": "tsc --watch --noEmit",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/restify": "^8.5.2",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.32.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.2.0",
+    "mocha": "^9.1.2",
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
+    "sinon-chai": "^3.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "dotenv-safe": "^8.2.0",
+    "knex": "^0.95.11",
+    "mysql": "^2.18.1",
+    "redis": "^4.0.0-rc.2",
+    "restify": "^8.6.0"
+  }
+}
