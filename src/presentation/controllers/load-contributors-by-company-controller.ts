@@ -11,7 +11,16 @@ export class LoadContributorsByCompanyController implements Controller {
       const cachedContributorsByCompany = await getRedisConnection().get(`contributors-companyId-${companyId}`)
       if (cachedContributorsByCompany) return ok(JSON.parse(cachedContributorsByCompany))
 
-      const contributors = await getDatabaseConnection()('contributors').where({ id_company: companyId })
+      const contributors = (await getDatabaseConnection()('contributors').where({ id_company: companyId })).map(contributor => {
+        return {
+          id: contributor.id,
+          firstName: contributor.firstName,
+          lastName: contributor.lastName,
+          title: contributor.title,
+          jobTitle: contributor.jobTitle,
+          age: contributor.age
+        }
+      })
       getRedisConnection().set(`contributors-companyId-${companyId}`, JSON.stringify(contributors))
       return ok(contributors)
     } catch (error) {

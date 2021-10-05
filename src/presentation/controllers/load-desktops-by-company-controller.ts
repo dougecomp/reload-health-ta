@@ -11,7 +11,15 @@ export class LoadDesktopsByCompanyController implements Controller {
       const cachedDesktops = await getRedisConnection().get(`desktops-companyId-${companyId}`)
       if (cachedDesktops) return ok(JSON.parse(cachedDesktops))
 
-      const desktops = await getDatabaseConnection()('desktops').where({ id_company: companyId })
+      const desktops = (await getDatabaseConnection()('desktops').where({ id_company: companyId })).map(desktop => {
+        return {
+          id: desktop.id,
+          platform: desktop.platform,
+          type: desktop.type,
+          os: desktop.os,
+          ip: desktop.ip
+        }
+      })
       getRedisConnection().set(`desktops-companyId-${companyId}`, JSON.stringify(desktops))
       return ok(desktops)
     } catch (error) {
