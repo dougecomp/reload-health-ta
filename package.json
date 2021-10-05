@@ -23,6 +23,7 @@
     "@types/restify": "^8.5.2",
     "@types/sinon": "^10.0.4",
     "@types/sinon-chai": "^3.2.5",
+    "@types/stream-json": "^1.7.1",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",
     "babel-plugin-module-resolver": "^4.1.0",
@@ -49,6 +50,7 @@
     "knex": "^0.95.11",
     "mysql": "^2.18.1",
     "redis": "^4.0.0-rc.2",
-    "restify": "^8.6.0"
+    "restify": "^8.6.0",
+    "stream-json": "^1.7.3"
   }
 }
