@@ -49,7 +49,9 @@ Used some principles of clean architecture and SOLID.
 
 ## Future works and improvements
 
-Create a application layer to abstract implementations of infrastructure following clean or hexagonal architecture, improving testability and maintainability.
+Create a application layer to abstract implementations of infrastructure (database, cache) following clean or hexagonal architecture, improving testability and maintainability.
+
+Think a way to improve reuse try catch on controllers.
 
 Improve usage of Knex in production due to the usage of the seed file to populate the companies table.
 
