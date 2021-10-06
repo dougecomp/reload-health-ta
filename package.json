@@ -22,6 +22,7 @@
     "@types/mock-knex": "^0.4.3",
     "@types/redis-mock": "^0.17.0",
     "@types/restify": "^8.5.2",
+    "@types/restify-cors-middleware": "^1.0.2",
     "@types/sinon": "^10.0.4",
     "@types/sinon-chai": "^3.2.5",
     "@types/stream-json": "^1.7.1",
@@ -53,6 +54,7 @@
     "mysql": "^2.18.1",
     "redis": "^4.0.0-rc.2",
     "restify": "^8.6.0",
+    "restify-cors-middleware": "^1.1.1",
     "stream-json": "^1.7.3"
   }
 }
