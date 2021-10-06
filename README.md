@@ -53,6 +53,10 @@ Used some principles of clean architecture and SOLID.
 
 - `yarn dev`
 
+### API Documentation
+
+Run `npx serve` inside of folder **docs** to see the documentation generated with Insomnia. Import the file **reload-health-coderbyte-douglas-silva-endpoints-insomnia.json** on Insomnia to see the endpoints.
+
 ## Future works and improvements
 
 Create a application layer to abstract implementations of infrastructure (database, cache) following clean or hexagonal architecture, improving testability and maintainability.
@@ -62,3 +66,5 @@ Think a way to improve reuse try catch on controllers.
 Improve usage of Knex in production due to the usage of the seed file to populate the companies table.
 
 Check if seed with stream is properly used. In this case, the seed time to execute was similar in both cases. The memory usage was also similar.
+
+## Have Fun 😃
