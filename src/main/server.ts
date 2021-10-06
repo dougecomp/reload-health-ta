@@ -1,4 +1,4 @@
-import { env } from './config/config'
+import { env } from './config/env'
 import { makeApp } from './app'
 import { setDatabaseConnection } from '@/infra/repositories'
 import { getRedisConnection, setRedisConnection } from '@/infra/redis/redis-connection'
