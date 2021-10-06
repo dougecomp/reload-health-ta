@@ -1,3 +1,4 @@
+import { getRedisConnection } from '@/infra/redis/redis-connection'
 import { getDatabaseConnection } from '@/infra/repositories'
 import { Controller, HttpResponse } from '../contracts'
 import { ok, serverError } from '../helpers/http-helper'
@@ -6,6 +7,9 @@ export class SearchCompaniesController implements Controller {
   async handle (request: any): Promise<HttpResponse> {
     try {
       const { term } = request
+      const cachedCompanies = await getRedisConnection().get(`search-companies-term-${term}`)
+      if (cachedCompanies) return ok(JSON.parse(cachedCompanies))
+
       const companiesColumnsToSearch = [
         'id',
         'business_name',
@@ -50,6 +54,7 @@ export class SearchCompaniesController implements Controller {
         queryBuilder.orWhere(`desktops.${column}`, 'like', `%${term}%`)
       })
       const companies = await queryBuilder
+      getRedisConnection().set(`search-companies-term-${term}`, JSON.stringify(companies))
       return ok(companies)
     } catch (error) {
       return serverError(error)
