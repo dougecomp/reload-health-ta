@@ -31,21 +31,27 @@ Used some principles of clean architecture and SOLID.
 
 ### 1. Install dependencies
 
-- yarn
+- `yarn`
 
 ### 2. Run tests
 
-- yarn test
+- `yarn test`
 
 ### 3. Copy .env.example to .env and config values
 
 ### 4. Provision infrastructure
 
-- docker-compose up -d
+- `docker-compose up -d`
 
-### 5. Run application
+### 5. Run migrations and seeds
 
-- yarn dev
+- `yarn database:migrate`
+
+- `yarn database:seed`
+
+### 6. Run application
+
+- `yarn dev`
 
 ## Future works and improvements
 
