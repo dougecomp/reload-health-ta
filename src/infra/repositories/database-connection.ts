@@ -13,8 +13,14 @@ let databaseConnection: Knex<any, unknown[]> = null
 
 export function setDatabaseConnection (config: DatabaseConnectionParams) {
   databaseConnection = knex({
-    client: 'mysql',
-    connection: config
+    client: config.client,
+    connection: {
+      host: config.host,
+      port: config.port,
+      user: config.user,
+      password: config.password,
+      database: config.database
+    }
   })
 }
 
